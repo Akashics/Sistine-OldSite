@@ -1,0 +1,58 @@
+<!DOCTYPE html><html><head><meta charset="utf-8"><title>Rem Bot for Discord</title><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto+Condensed:400,700"><link rel="stylesheet" href="/assets/css/styles.css"><link rel="apple-touch-icon" sizes="180x180" href="/assets/favicons/apple-touch-icon.png"><link rel="icon" type="image/png" sizes="32x32" href="/assets/favicons/favicon-32x32.png"><link rel="icon" type="image/png" sizes="16x16" href="/assets/favicons/favicon-16x16.png"><link rel="manifest" href="/assets/favicons/manifest.json"><link rel="mask-icon" href="/assets/safari-pinned-tab.svg" color="#5bbad5"><meta name="theme-color" content="#ffffff"></head><body><div class="background"><img id="js-bg" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"></div><div class="image-cover content-box"><div class="page-content"><img class="rem-icon" src="/assets/img/rem-head-line.svg"><h1>REM</h1><h2>Your very own maid.</h2><p class="discord-button"><a href="https://discordapp.com/oauth2/authorize?client_id=181218254365130752&amp;scope=bot&amp;permissions=402127999"><img src="/assets/img/add-to-discord.png"></a></p></div><footer><ul><li><a href="https://rembot.atlassian.net/wiki/display/REMDOCv2/Rem+v2+Documentation">DOCUMENTATION</a></li><li><a href="https://discord.gg/rem">SUPPORT</a></li><li><a href="https://github.com/rem-bot-industries">GITHUB</a></li></ul></footer></div><script>var backgroundElement = document.getElementById('js-bg');
+var sizes = {
+  0: [1024, 1920],
+  //1: [1024, 1920, 3840, 4860]
+};
+var current = 0;
+var selected = Math.floor(Math.random() * Object.keys(sizes).length);
+sizes = sizes[selected];
+
+function getDimensions () {
+  return {
+    w: typeof window.innerWidth === 'number' ? window.innerWidth : document.documentElement && document.documentElement.clientWidth ? document.documentElement.clientWidth : document.body.clientWidth,
+    h: typeof window.innerHeight === 'number' ? window.innerHeight : document.documentElement && document.documentElement.clientHeight ? document.documentElement.clientHeight : document.body.clientHeight
+  };
+}
+
+function handleViewportResize () {
+  var d = getDimensions();
+
+  if (d.w > current) {
+    for (var i = 0; i < sizes.length; i++) {
+      if (sizes[i] >= d.w) {
+        current = sizes[i];
+        break;
+      }
+    }
+
+    var url = 'assets/img/background/' + selected + '_' + current + '.jpg';
+    backgroundElement.src = url;
+  }
+
+  if ((d.w / d.h) < (backgroundElement.width / backgroundElement.height)) {
+    backgroundElement.style.width = 'auto';
+    backgroundElement.style.height = '100%';
+  } else {
+    backgroundElement.style.width = '100%';
+    backgroundElement.style.height = 'auto';
+  }
+}
+
+backgroundElement.onload = function () {
+  var d = getDimensions();
+  if ((d.w / d.h) < (backgroundElement.width / backgroundElement.height)) {
+    backgroundElement.style.width = 'auto';
+    backgroundElement.style.height = '100%';
+  } else {
+    backgroundElement.style.width = '100%';
+    backgroundElement.style.height = 'auto';
+  }
+  backgroundElement.className = 'loaded';
+}
+
+if (window.addEventListener) window.addEventListener('resize', handleViewportResize, false);
+else if (window.attachEvent) window.attachEvent('onresize', handleViewportResize);
+else window.onresize = handleViewportResize;
+
+handleViewportResize();
+</script></body></html>
