@@ -1,93 +1,84 @@
 <!DOCTYPE html>
 <html>
-   <head>
-      <meta charset="utf-8">
-      <title>Chiyo - Discord</title>
-      <meta http-equiv="X-UA-Compatible" content="IE=edge">
-      <meta name="viewport" content="width=device-width, initial-scale=1">
-      <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto+Condensed:400,700">
-      <link rel="stylesheet" href="./assets/css/styles.css">
-      <link rel="apple-touch-icon" sizes="180x180" href="./assets/favicons/apple-touch-icon.png">
-      <link rel="icon" type="image/png" sizes="32x32" href="./assets/favicons/favicon-32x32.png">
-      <link rel="icon" type="image/png" sizes="16x16" href="./assets/favicons/favicon-16x16.png">
-      <link rel="manifest" href="./assets/favicons/manifest.json">
-      <link rel="mask-icon" href="./assets/safari-pinned-tab.svg" color="#5bbad5">
-      <meta name="theme-color" content="#ffffff">
-   </head>
-   <body>
-      <div class="background"><img id="js-bg1" src="https://farm6.staticflickr.com/5576/15134723609_6a33f86683_o.png"> <div>
-      <div class="image-cover content-box">
-         <div class="page-content">
-            <img class="rem-icon" src="https://img.fireden.net/a/image/1445/75/1445759331285.png">
-            <h1>Chiyo</h1>
-            <h2>Komada-based Discord Bot</h2>
-            <p class="discord-button"><a href="https://chiyo.ml/invite"><img src="./assets/img/add-to-discord.png"></a></p>
-         </div>
-         <footer>
-            <ul>
-               <li><a href="#">DOCUMENTATION</a></li>
-               <li><a href="https://chiyo.ml/support">SUPPORT</a></li>
-               <li><a href="https://github.com/Kashalls">GITHUB</a></li>
-            </ul>
-         </footer>
-      </div>
-      <script>var backgroundElement = document.getElementById('js-bg');
-         var sizes = {
-           0: [1024, 1920],
-           //1: [1024, 1920, 3840, 4860]
-         };
-         var current = 0;
-         var selected = Math.floor(Math.random() * Object.keys(sizes).length);
-         sizes = sizes[selected];
-         
-         function getDimensions () {
-           return {
-             w: typeof window.innerWidth === 'number' ? window.innerWidth : document.documentElement && document.documentElement.clientWidth ? document.documentElement.clientWidth : document.body.clientWidth,
-             h: typeof window.innerHeight === 'number' ? window.innerHeight : document.documentElement && document.documentElement.clientHeight ? document.documentElement.clientHeight : document.body.clientHeight
-           };
-         }
-         
-         function handleViewportResize () {
-           var d = getDimensions();
-         
-           if (d.w > current) {
-             for (var i = 0; i < sizes.length; i++) {
-               if (sizes[i] >= d.w) {
-                 current = sizes[i];
-                 break;
-               }
-             }
-         
-             var url = 'assets/img/background/' + selected + '_' + current + '.jpg';
-             backgroundElement.src = url;
-           }
-         
-           if ((d.w / d.h) < (backgroundElement.width / backgroundElement.height)) {
-             backgroundElement.style.width = 'auto';
-             backgroundElement.style.height = '100%';
-           } else {
-             backgroundElement.style.width = '100%';
-             backgroundElement.style.height = 'auto';
-           }
-         }
-         
-         backgroundElement.onload = function () {
-           var d = getDimensions();
-           if ((d.w / d.h) < (backgroundElement.width / backgroundElement.height)) {
-             backgroundElement.style.width = 'auto';
-             backgroundElement.style.height = '100%';
-           } else {
-             backgroundElement.style.width = '100%';
-             backgroundElement.style.height = 'auto';
-           }
-           backgroundElement.className = 'loaded';
-         }
-         
-         if (window.addEventListener) window.addEventListener('resize', handleViewportResize, false);
-         else if (window.attachEvent) window.attachEvent('onresize', handleViewportResize);
-         else window.onresize = handleViewportResize;
-         
-         handleViewportResize();
-      </script>
-   </body>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="Chiyo / Chiyo is member-oriented Discord Bot that provides fun and safe commands to use in a public and/or private community.">
+    <meta name="keywords" content="Discord, Discord bots, Discord bot, Chiyo, Chiyo Discord">
+    <meta name="author" content="Kashall">
+    <title>Chiyo / Discord</title>
+    <link rel="icon" href="icon.ico">
+    <link rel="stylesheet" href="css/bulma.css">
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/main.css">
+    <meta property="og:url" content="https://chiyo.ml">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="A simple and modern Discord bot.">
+    <meta property="og:description" content="Chiyo is member-oriented Discord Bot that provides fun and safe commands to use in a public and/or private community. She is built with the Komada library, based on Discord.JS.">
+    <meta property="og:image" content="https://images.discordapp.net/avatars/337423149832470528/a08c02b393cc81fe944f0e1edb20c664.png">
+    <meta property="og:image:secure_url" content="https://images.discordapp.net/avatars/337423149832470528/a08c02b393cc81fe944f0e1edb20c664.png">
+    <script>
+        (function (i, s, o, g, r, a, m) {
+        i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
+            (i[r].q = i[r].q || []).push(arguments)
+        }, i[r].l = 1 * new Date(); a = s.createElement(o),
+            m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
+        })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+
+        ga('create', 'UA-105784869-1', 'auto');
+        ga('send', 'pageview');
+
+    </script>
+</head>
+
+<body>
+    <section class="hero is-info is-fullheight">
+        <div class="hero-head" style="background-color: #185875 !important;">
+            <header class="nav">
+                <div class="container">
+                    <div class="nav-left">
+                        <a class="nav-item" href="https://chiyo.ml/" style="font-family: UniSans; color: white;font-size: 28px; width: 6em;">CHIYO</a>
+                    </div>
+                    <a href="/" class="nav-item is-active">
+                          Home
+                      </a>
+                    <a href="commands" class="nav-item">
+                          Commands
+                      </a>
+                    <a href="https://chiyo.ml/support" class="nav-item">
+                          Support
+                      </a>
+                    <span class="nav-item">
+                          <a href="https://chiyo.ml/invite" target="_blank" class="button is-info is-inverted">
+                              <span class="icon">
+                                  <i class="fa fa-server"></i>
+                              </span>
+                    <span onclick="ga('send', 'event', 'invite', 'click', 'invite clicked');">Invite Chiyo</span>
+                    </a>
+                    </span>
+                </div>
+            </header>
+        </div>
+
+        <div class="hero-body" style="background-color:#1F2739">
+            <div class="container has-text-centered">
+                <img class="profilebotimage" src="https://images.discordapp.net/avatars/337423149832470528/a08c02b393cc81fe944f0e1edb20c664.png?size=512"
+                    width="256px" height="256px" style="margin-top:80px;border-radius:50%; border:6px solid #ffffff;">
+                <br>
+                <h2 class="subtitle" style="margin-top: 1em;">
+                    Chiyo is member-oriented Discord Bot that provides<br>fun and safe commands to use in a public and/or
+                    private community. <br>
+                    <br>
+                    <p id="bottprefix"><b>Default Prefix:</b> ch. or Mention @Chiyo</p>
+                    <div class="info">
+                        <br>
+                        <p class="discord-button"><a href="https://chiyo.ml/invite"><img src="https://chiyo.ml/assets/img/add-to-discord.png"></a></p>
+                    </div>
+                </h2>
+            </div>
+        </div>
+    </section>
+
+</body>
+
 </html>
